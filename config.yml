@@ -1,0 +1,23 @@
+global:
+    config_version: 2
+input:
+    type: file
+    path: /var/log/auth.log
+    readall: true # Read from the beginning of the file? False means we start at the end of the file and read only new lines.
+grok:
+    patterns_dir: ./patterns
+metrics:
+    - type: counter
+      name: user_activityi_alphaserver1
+      help: Total number of Alphaserver1 ssh attempt in server
+      match: 'session opened for user alphaserver1'
+    - type: counter
+      name: user_activity_alphaserver2
+      help: Total number of Alphaserver2 ssh attempt in server
+      match: 'session opened for user alphaserver2'
+
+server:
+    host: localhost
+    port: 9144
+
+
