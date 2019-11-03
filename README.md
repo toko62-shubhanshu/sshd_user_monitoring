@@ -55,6 +55,15 @@ server:
     port: 9144
 ```
 
+The metrics is exposing like this 
+```
+# TYPE user_activity_alphaserver2 counter
+user_activity_alphaserver2 4
+# HELP user_activityi_alphaserver1 Total number of Alphaserver1 ssh attempt in server
+# TYPE user_activityi_alphaserver1 counter
+user_activityi_alphaserver1 1
+```
+
 PROMETHEUS SETUP
 ---------------- 
 
