@@ -1,0 +1,12 @@
+---
+- name: Setup Setup SSH monitoring of user
+  hosts: all
+  remote_user: '{{ remote_user }}' 
+  vars:
+  sudo: yes
+
+  roles:
+    - adduser
+    - grok_exporter
+    - prometheus 
+    - grafana 
