@@ -1,0 +1,19 @@
+---
+- name: download Prometheus 
+  get_url:
+    url: https://github.com/prometheus/prometheus/releases/download/v2.2.1/prometheus-2.2.1.linux-amd64.tar.gz
+    dest: /tmp
+
+- name: Unzip prometheus
+  shell: tar xfs prometheus-2.2.1.linux-amd64.tar.gz
+
+- name: Copy the prometheus.yml
+  copy:
+    src: prometheus.yml
+    dest: /prometheus-2.2.1.linux-amd64/
+    owner: prometheus
+    group: prometheus
+    mode: '0644'
+
+- name: Run the service
+  command: ./prometheus

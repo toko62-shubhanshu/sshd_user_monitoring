@@ -1,0 +1,17 @@
+---
+- name: download Grok_exporter
+  get_url:
+    url: https://github.com/fstab/grok_exporter/releases/download/v0.2.7/grok_exporter-0.2.7.linux-amd64.zip
+    dest: /tmp
+
+- name: Unzip Grok_exporter
+  shell: unzip grok_exporter-0.2.7.linux-amd64.zip
+
+- name: Copy the config.yml
+  copy:
+    src: config.yml
+    dest: grok_exporter-0.2.7.linux-amd64/
+    mode: '0644'
+
+- name: Run the service
+  command: ./grok_exporter --config config.yml

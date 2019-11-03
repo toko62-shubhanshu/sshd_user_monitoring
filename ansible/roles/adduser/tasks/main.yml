@@ -1,0 +1,15 @@
+---
+
+- name: Add the user 'Alpha1' with a specific uid and a primary group of 'admin'
+  user:
+    name: alpha1
+    comment: ALPHASERVER1
+    uid: 1040
+    group: admin
+
+- name: Add the user 'Alpha2' with a specific uid and a primary group of 'admin'
+  user:
+    name: alpha2
+    comment: ALPHASERVER2
+    uid: 1041
+    group: admin
